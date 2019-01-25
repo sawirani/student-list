@@ -1,0 +1,49 @@
+<div class="popupfont" *ngIf="popup===true">
+  <div class="popUp">
+    <p>Вы действительно хотите удалить {{deluser.fistName}} {{deluser.lastName}}</p>
+    <input class="submit check" type="button" value="Удалить" (click)="Delete()"/>
+    <input class="submit check" type="button" value="Отменить" (click)="Cancel()"/>
+  </div>
+</div>
+
+<div class="contener">
+  <div class="firstdiv">
+    <input class="submit check" type="button" (click)="ChangeRedThreeRating()" value="Подсветить тройки"/>
+    <br>
+    <p>Поиск по:</p>
+    <label for="fname">Имени</label> <input id="fname" class="text" [(ngModel)]="sFName"/>
+    <label for="lname">Фамилии</label> <input id="lname" class="text" [(ngModel)]="sLName"/>
+    <p>Фильтр по:</p>
+    <label for="rname">Средней оценке</label> <input id="rname" class="text" [(ngModel)]="fRating"/>
+    <label for="dname">Дате</label> <input id="dname" class="text" [(ngModel)]="fDate"/>
+    <p class="attention">ввод даты в формате: mm.dd.yyyy</p>
+  </div>
+  <div>
+    <table>
+      <tr>
+        <th (click)="SortTextField('lastName')">Фамилия</th>
+        <th (click)="SortTextField('fistName')">Имя</th>
+        <th (click)="SortTextField('middleName')">Отчество</th>
+        <th (click)="SortNumberField('birthday')">Дата рождения</th>
+        <th (click)="SortNumberField('rating')">Средняя оценка</th>
+        <th></th>
+      </tr>
+      <tr *ngFor="let student of students"
+          [ngClass]="{
+          searchfName:SFirstName(student.fistName),
+          searchlName:SLastName(student.lastName),
+          redRating:IsRedColor(student.rating),
+          filter1:filterRating(student.rating),
+          filter2:filterDate(student.birthday)
+          }">
+        <td>{{student.lastName}}</td>
+        <td>{{student.fistName}}</td>
+        <td>{{student.middleName}}</td>
+        <td>{{student.birthday.getDate()}}.{{student.birthday.getMonth()+1}}.{{student.birthday.getFullYear()}}</td>
+        <td>{{student.rating}}</td>
+        <td><input class="submit" type="button" (click)="Confirm(student)" value="Удалить"/></td>
+      </tr>
+    </table>
+  </div>
+</div>
+

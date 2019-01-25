@@ -1,0 +1,101 @@
+
+.contener{
+  display: flex;
+}
+.contener div{
+  margin: 5px 10px 5px 10px;
+}
+table {
+  border-collapse: collapse;
+  color: #686461;
+}
+th {
+  border-bottom: 3px solid rgb(138, 138, 138);
+  padding: 10px;
+  text-align: left;
+}
+td {
+  padding: 10px;
+}
+tr:nth-child(odd) {
+  background: white;
+}
+tr:nth-child(even) {
+  background: rgb(238, 238, 238);
+}
+
+table .redRating{
+  color: red;
+}
+table .searchlName{
+  color: #6dc726
+}
+table .searchfName{
+  color: blue;
+}
+
+th:active{
+  color: gray
+}
+
+.submit{
+  display: inline-block;
+  font-family: arial,sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  user-select: none;
+  line-height: 2em;
+  outline: none;
+  border: 1px solid rgba(33,43,52,1);
+  border-radius: 3px;
+  background: #00000069;
+  color: white
+}
+
+.search{
+  margin: 0 0 0 10px;
+}
+
+.check{
+  margin: 15px 0 15px 0;
+  padding: 1px 1.2em;
+}
+
+table .filter1,table .filter2{
+  display: none;
+}
+
+.text{
+  margin: 0 10px 0 10px;
+}
+
+.firstdiv{
+  min-width: 530px;
+}
+
+.attention{
+  color: red;
+  font-weight: bold;
+}
+
+.popUp{
+  width: 500px;
+  height: 250px;
+  background: white;
+  position: absolute;
+  left: 30%;
+  top:20%;
+  padding-top: 50px;
+  text-align: center;
+}
+
+.popupfont{
+  position: absolute;
+  background: grey;
+  width: 100%;
+  height: 100%;
+}
+
+.popupfont input{
+  margin-right: 10px;
+}
