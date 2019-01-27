@@ -7,17 +7,6 @@
 </div>
 
 <div class="contener">
-  <div class="firstdiv">
-    <input class="submit check" type="button" (click)="ChangeRedThreeRating()" value="Подсветить тройки"/>
-    <br>
-    <p>Поиск по:</p>
-    <label for="fname">Имени</label> <input id="fname" class="text" [(ngModel)]="sFName"/>
-    <label for="lname">Фамилии</label> <input id="lname" class="text" [(ngModel)]="sLName"/>
-    <p>Фильтр по:</p>
-    <label for="rname">Средней оценке</label> <input id="rname" class="text" [(ngModel)]="fRating"/>
-    <label for="dname">Дате</label> <input id="dname" class="text" [(ngModel)]="fDate"/>
-    <p class="attention">ввод даты в формате: mm.dd.yyyy</p>
-  </div>
   <div>
     <table>
       <tr>
@@ -44,6 +33,16 @@
         <td><input class="submit" type="button" (click)="Confirm(student)" value="Удалить"/></td>
       </tr>
     </table>
+  </div>
+  <div class="firstdiv">
+    <input class="submit check" type="button" (click)="ChangeRedThreeRating()" value="Подсветить тройки"/>
+    <p>Всего студентов: <span class="count">{{students.length}}</span></p>
+    <p>Поиск по:</p>
+    <label for="fname">Имени</label> <input id="fname" class="text" [(ngModel)]="sFName"/>
+    <label for="lname">Фамилии</label> <input id="lname" class="text" [(ngModel)]="sLName"/>
+    <p>Фильтр по:</p>
+    <label for="rname">Средней оценке</label> <input id="rname" class="text" [(ngModel)]="fRating"/>
+    <label for="dname">Дате</label> <input type="date" id="dname" class="text" [(ngModel)]="fDate"/>
   </div>
 </div>
 

@@ -83,7 +83,7 @@ export class StudentlistComponent implements OnInit {
 
   Confirm(student: Student) {
     this.deluser = student;
-    console.log("tut")
+    console.log('tut');
     this.popup = true;
   }
 

@@ -99,3 +99,7 @@ table .filter1,table .filter2{
 .popupfont input{
   margin-right: 10px;
 }
+
+.count{
+  font-weight: bold;
+}
