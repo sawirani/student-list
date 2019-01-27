@@ -1,3 +1,4 @@
+
 <div class="popupfont" *ngIf="popup===true">
   <div class="popUp">
     <p>Вы действительно хотите удалить {{deluser.fistName}} {{deluser.lastName}}</p>
@@ -41,8 +42,10 @@
     <label for="fname">Имени</label> <input id="fname" class="text" [(ngModel)]="sFName"/>
     <label for="lname">Фамилии</label> <input id="lname" class="text" [(ngModel)]="sLName"/>
     <p>Фильтр по:</p>
-    <label for="rname">Средней оценке</label> <input id="rname" class="text" [(ngModel)]="fRating"/>
+    <label for="rname">Средней оценке</label> <input type="number" id="rname" class="text" [(ngModel)]="fRating"/>
     <label for="dname">Дате</label> <input type="date" id="dname" class="text" [(ngModel)]="fDate"/>
   </div>
 </div>
+
+
 
