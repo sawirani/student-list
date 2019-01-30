@@ -21,7 +21,7 @@ export class StudentlistComponent {
   popup = false;
   addpopup = false;
 
-  _deluser: Student;
+  deluser: Student;
 
   constructor() {
   }
@@ -85,7 +85,7 @@ export class StudentlistComponent {
   }
 
   confirm(student: Student) {
-    this._deluser = student;
+    this.deluser = student;
     this.popup = true;
   }
 
@@ -96,7 +96,7 @@ export class StudentlistComponent {
 
   delete() {
     for (let i = 0; i < this.students.length; i++) {
-      if (this.students[i] === this._deluser) {
+      if (this.students[i] === this.deluser) {
         this.students.splice(i, 1);
       }
     }
