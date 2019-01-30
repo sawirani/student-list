@@ -1,16 +1,16 @@
-import {Component, OnInit} from '@angular/core';
-import {STUDENTS} from 'src/app/studentlist/studentlist';
-import {Student} from './student.model';
+import {Component} from '@angular/core';
+import {STUDENTS} from 'src/app/studentlist';
+import {Student} from '../student.model';
 
 @Component({
   selector: 'app-studentlist',
   templateUrl: './studentlist.component.html',
-  styleUrls: ['./studentlist.component.css']
+  styleUrls: ['../app.component.css', './studentlist.component.css']
 })
-export class StudentlistComponent implements OnInit {
+export class StudentlistComponent {
 
   students: Student[] = STUDENTS;
-  threeRating = false;
+  _threeRating = false;
 
   sFName: string;
   sLName: string;
@@ -19,32 +19,33 @@ export class StudentlistComponent implements OnInit {
   fDate: string;
 
   popup = false;
+  addpopup = false;
 
-  deluser: Student;
+  _deluser: Student;
 
   constructor() {
   }
 
-  IsRedColor(assessment: Number): boolean {
+  isRedColor(assessment: Number): boolean {
     if (assessment === 3) {
-      if (this.threeRating === true) {
+      if (this._threeRating === true) {
         return true;
       }
     }
     return false;
   }
 
-  ChangeRedThreeRating(): void {
-    (this.threeRating === true) ? this.threeRating = false : this.threeRating = true;
+  changeRedThreeRating(): void {
+    (this._threeRating === true) ? this._threeRating = false : this._threeRating = true;
   }
 
-  SortTextField(field: string): void {
+  sortTextField(field: string): void {
     this.students.sort((a, b) => {
       return (a[field]).localeCompare(b[field]);
     });
   }
 
-  SortNumberField(field: string): void {
+  sortNumberField(field: string): void {
     this.students.sort((a, b) => {
       if (a[field] > b[field]) {
         return 1;
@@ -56,11 +57,11 @@ export class StudentlistComponent implements OnInit {
     });
   }
 
-  SLastName(lastName: string): boolean {
+  sLastName(lastName: string): boolean {
     return lastName === this.sLName;
   }
 
-  SFirstName(firstName: string): boolean {
+  sFirstName(firstName: string): boolean {
     return firstName === this.sFName;
   }
 
@@ -74,35 +75,44 @@ export class StudentlistComponent implements OnInit {
   filterDate(date: Date) {
     const tmpdate = new Date(this.fDate);
     if (this.fDate) {
-      if ((tmpdate.getFullYear() !== date.getFullYear()) || (tmpdate.getDate() !== date.getDate()) || (tmpdate.getMonth() !== date.getMonth())) {
+      if ((tmpdate.getFullYear() !== date.getFullYear()) ||
+          (tmpdate.getDate() !== date.getDate()) ||
+          (tmpdate.getMonth() !== date.getMonth())) {
         return true;
       }
     }
     return false;
   }
 
-  Confirm(student: Student) {
-    this.deluser = student;
-    console.log('tut');
+  confirm(student: Student) {
+    this._deluser = student;
     this.popup = true;
   }
 
 
-  Cancel() {
+  cancel() {
     this.popup = false;
   }
 
-  Delete() {
+  delete() {
     for (let i = 0; i < this.students.length; i++) {
-      if (this.students[i] === this.deluser) {
+      if (this.students[i] === this._deluser) {
         this.students.splice(i, 1);
       }
     }
     this.popup = false;
   }
 
+  studentPopUp(pop: boolean) {
+    if (pop === false) {
+      this.addpopup = true;
+    } else {
+      this.addpopup = false;
+    }
+  }
 
-  ngOnInit() {
+  addStudent(stud: Student) {
+    this.students.push(stud);
   }
 }
 

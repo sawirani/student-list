@@ -1,4 +1,4 @@
-import {Student} from 'src/app/studentlist/student.model';
+import {Student} from 'src/app/student.model';
 
 // Data mon.day.year
 export const STUDENTS: Student[] = [

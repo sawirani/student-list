@@ -38,24 +38,6 @@ th:active{
   color: gray
 }
 
-.submit{
-  display: inline-block;
-  font-family: arial,sans-serif;
-  font-size: 11px;
-  text-decoration: none;
-  user-select: none;
-  line-height: 2em;
-  outline: none;
-  border: 1px solid rgba(33,43,52,1);
-  border-radius: 3px;
-  background: #00000069;
-  color: white
-}
-
-.search{
-  margin: 0 0 0 10px;
-}
-
 .check{
   margin: 15px 0 15px 0;
   padding: 1px 1.2em;
@@ -77,16 +59,27 @@ table .filter1,table .filter2{
   color: red;
   font-weight: bold;
 }
-
 .popUp{
   width: 500px;
   height: 250px;
-  background: white;
-  position: absolute;
   left: 30%;
   top:20%;
   padding-top: 50px;
+}
+
+.popUp, .addPopUps{
+  margin: 0;
+  background: white;
+  position: absolute;
   text-align: center;
+}
+
+.addPopUps{
+  padding-top: 10px;
+  width: 500px;
+  height: 700px;
+  left: 30%;
+  top:5%;
 }
 
 .popupfont{
@@ -102,4 +95,8 @@ table .filter1,table .filter2{
 
 .count{
   font-weight: bold;
+}
+.add{
+  width: 200px;
+  height: 100px;
 }

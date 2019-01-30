@@ -1,9 +1,15 @@
 
+<div class="popupfont" *ngIf="addpopup===true">
+  <div class="addPopUps">
+      <app-userform (addpopup)="studentPopUp($event)" (addstudent)="addStudent($event)"></app-userform>
+  </div>
+</div>
+
 <div class="popupfont" *ngIf="popup===true">
   <div class="popUp">
     <p>Вы действительно хотите удалить {{deluser.fistName}} {{deluser.lastName}}</p>
-    <input class="submit check" type="button" value="Удалить" (click)="Delete()"/>
-    <input class="submit check" type="button" value="Отменить" (click)="Cancel()"/>
+    <input class="submit check" type="button" value="Удалить" (click)="delete()"/>
+    <input class="submit check" type="button" value="Отменить" (click)="cancel()"/>
   </div>
 </div>
 
@@ -11,18 +17,18 @@
   <div>
     <table>
       <tr>
-        <th (click)="SortTextField('lastName')">Фамилия</th>
-        <th (click)="SortTextField('fistName')">Имя</th>
-        <th (click)="SortTextField('middleName')">Отчество</th>
-        <th (click)="SortNumberField('birthday')">Дата рождения</th>
-        <th (click)="SortNumberField('rating')">Средняя оценка</th>
+        <th (click)="sortTextField('lastName')">Фамилия</th>
+        <th (click)="sortTextField('fistName')">Имя</th>
+        <th (click)="sortTextField('middleName')">Отчество</th>
+        <th (click)="sortNumberField('birthday')">Дата рождения</th>
+        <th (click)="sortNumberField('rating')">Средняя оценка</th>
         <th></th>
       </tr>
       <tr *ngFor="let student of students"
           [ngClass]="{
-          searchfName:SFirstName(student.fistName),
-          searchlName:SLastName(student.lastName),
-          redRating:IsRedColor(student.rating),
+          searchfName:sFirstName(student.fistName),
+          searchlName:sLastName(student.lastName),
+          redRating:isRedColor(student.rating),
           filter1:filterRating(student.rating),
           filter2:filterDate(student.birthday)
           }">
@@ -31,12 +37,12 @@
         <td>{{student.middleName}}</td>
         <td>{{student.birthday.getDate()}}.{{student.birthday.getMonth()+1}}.{{student.birthday.getFullYear()}}</td>
         <td>{{student.rating}}</td>
-        <td><input class="submit" type="button" (click)="Confirm(student)" value="Удалить"/></td>
+        <td><input class="submit" type="button" (click)="confirm(student)" value="Удалить"/></td>
       </tr>
     </table>
   </div>
   <div class="firstdiv">
-    <input class="submit check" type="button" (click)="ChangeRedThreeRating()" value="Подсветить тройки"/>
+    <input class="submit check" type="button" (click)="changeRedThreeRating()" value="Подсветить тройки"/>
     <p>Всего студентов: <span class="count">{{students.length}}</span></p>
     <p>Поиск по:</p>
     <label for="fname">Имени</label> <input id="fname" class="text" [(ngModel)]="sFName"/>
@@ -44,8 +50,7 @@
     <p>Фильтр по:</p>
     <label for="rname">Средней оценке</label> <input type="number" id="rname" class="text" [(ngModel)]="fRating"/>
     <label for="dname">Дате</label> <input type="date" id="dname" class="text" [(ngModel)]="fDate"/>
+    <br>
+    <input type="button" class="submit check add" value="Добавить студента" (click)=studentPopUp(addpopup)/>
   </div>
 </div>
-
-
-

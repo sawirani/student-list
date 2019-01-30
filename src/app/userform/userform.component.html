@@ -1,0 +1,47 @@
+<form [formGroup]="studentForm" (ngSubmit)="onSubmit()">
+  <div formGroupName="person">
+<p> Имя</p>
+<input type="text" placeholder="Имя"  formControlName="firstName"/>
+    <ul *ngIf="studentForm.controls.person.controls.firstName.invalid">
+      <li *ngIf="studentForm.controls.person.controls.firstName.errors.minlength">Минимальная длина имени 3 </li>
+      <li *ngIf="studentForm.controls.person.controls.firstName.errors.maxlength">Максимальная длина имени 10 </li>
+      <li *ngIf="studentForm.controls.person.controls.firstName.errors.required">Поле должно быть заполнено</li>  
+    </ul>
+
+<p> Фамилия</p>
+<input type="text" placeholder="Фамилия"  formControlName="lastName"/>
+  <ul *ngIf="studentForm.controls.person.controls.lastName.invalid">
+    <li *ngIf="studentForm.controls.person.controls.lastName.errors.minlength">Минимальная длина фамилии 3 </li>
+    <li *ngIf="studentForm.controls.person.controls.lastName.errors.maxlength">Максимальная длина фамилии 15 </li>
+    <li *ngIf="studentForm.controls.person.controls.lastName.errors.required">Поле должно быть заполнено</li>
+  </ul>
+
+<p>Отчество</p>
+<input type="text" placeholder="Отчество"  formControlName="middleName"/>
+<ul *ngIf="studentForm.controls.person.controls.middleName.invalid">
+    <li *ngIf="studentForm.controls.person.controls.middleName.errors.minlength">Минимальная длина отчества 5 </li>
+    <li *ngIf="studentForm.controls.person.controls.middleName.errors.maxlength">Максимальная длина отчества 15 </li>
+    <li *ngIf="studentForm.controls.person.controls.middleName.errors.required">Поле должно быть заполнено</li>
+
+  </ul>
+</div>
+<ul *ngIf="studentForm.controls.person.errors!==null">
+  <li *ngIf="studentForm.controls.person.errors.invalidName">{{studentForm.controls.person.errors.invalidName}}</li>
+</ul>
+  <p>Дата рождения</p>
+<input type="date"  formControlName="birthday"/>
+<ul *ngIf="studentForm.controls.birthday.invalid">
+    <li *ngIf="studentForm.controls.birthday.errors.invalidDate">{{studentForm.controls.birthday.errors.invalidDate}} </li>
+    <li *ngIf="studentForm.controls.birthday.errors.required">Поле должно быть заполнено</li>
+</ul>
+<p>Средняя оценка</p>
+<input type="number"  formControlName="rating"/>
+<ul *ngIf="studentForm.controls.rating.invalid">
+    <li *ngIf="studentForm.controls.rating.errors.min">Минимальная средняя оценка 2 </li>
+    <li *ngIf="studentForm.controls.rating.errors.max">Максимальная средняя оценка 5 </li>
+    <li *ngIf="studentForm.controls.rating.errors.required">Поле должно быть заполнено</li>
+</ul>
+<br><br>
+<button type="submit" class="submit buttons" [disabled]="!studentForm.valid">Сохранить</button>
+<button type="submit" class="submit buttons" (click)="cancel()">Отменить</button>
+</form>
