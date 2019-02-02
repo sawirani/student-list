@@ -1,102 +1,129 @@
+.submit {
+  display: inline-block;
+  font-family: arial, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  user-select: none;
+  line-height: 2em;
+  outline: none;
+  border: 1px solid rgba(33, 43, 52, 1);
+  border-radius: 3px;
+  background: #00000069;
+  color: white
+}
 
-.contener{
+.search {
+  margin: 0 0 0 10px;
+}
+
+.contener {
   display: flex;
 }
-.contener div{
+
+.contener div {
   margin: 5px 10px 5px 10px;
 }
+
 table {
   border-collapse: collapse;
   color: #686461;
 }
+
 th {
   border-bottom: 3px solid rgb(138, 138, 138);
   padding: 10px;
   text-align: left;
 }
+
 td {
   padding: 10px;
 }
+
 tr:nth-child(odd) {
   background: white;
 }
+
 tr:nth-child(even) {
   background: rgb(238, 238, 238);
 }
 
-table .redRating{
+table .redRating {
   color: red;
 }
-table .searchlName{
+
+table .searchlName {
   color: #6dc726
 }
-table .searchfName{
+
+table .searchfName {
   color: blue;
 }
 
-th:active{
+th:active {
   color: gray
 }
 
-.check{
+.check {
   margin: 15px 0 15px 0;
   padding: 1px 1.2em;
 }
 
-table .filter1,table .filter2{
+table .filter1, table .filter2 {
   display: none;
 }
 
-.text{
+.text {
   margin: 0 10px 0 10px;
 }
 
-.firstdiv{
+.firstdiv {
   min-width: 530px;
 }
 
-.attention{
+.attention {
   color: red;
   font-weight: bold;
 }
-.popUp{
+
+.popUp {
   width: 500px;
   height: 250px;
   left: 30%;
-  top:20%;
+  top: 20%;
   padding-top: 50px;
 }
 
-.popUp, .addPopUps{
+.popUp, .addPopUps {
   margin: 0;
   background: white;
   position: absolute;
   text-align: center;
 }
 
-.addPopUps{
+.addPopUps {
   padding-top: 10px;
   width: 500px;
   height: 700px;
   left: 30%;
-  top:5%;
+  top: 5%;
 }
 
-.popupfont{
+.popupfont {
   position: absolute;
   background: grey;
   width: 100%;
   height: 100%;
 }
 
-.popupfont input{
+.popupfont input {
   margin-right: 10px;
 }
 
-.count{
+.count {
   font-weight: bold;
 }
-.add{
+
+.add {
   width: 200px;
   height: 100px;
 }

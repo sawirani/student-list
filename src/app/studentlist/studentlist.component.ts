@@ -1,12 +1,13 @@
-import {Component} from '@angular/core';
-import {STUDENTS} from 'src/app/studentlist';
-import {Student} from '../student.model';
+import {Component} from "@angular/core";
+import {STUDENTS} from "src/app/studentlist";
+import {Student} from "../student.model";
 
 @Component({
-  selector: 'app-studentlist',
-  templateUrl: './studentlist.component.html',
-  styleUrls: ['../app.component.css', './studentlist.component.css']
+  selector: "app-studentlist",
+  templateUrl: "./studentlist.component.html",
+  styleUrls: ["/studentlist.component.css"],
 })
+
 export class StudentlistComponent {
 
   students: Student[] = STUDENTS;
@@ -76,8 +77,8 @@ export class StudentlistComponent {
     const tmpdate = new Date(this.fDate);
     if (this.fDate) {
       if ((tmpdate.getFullYear() !== date.getFullYear()) ||
-          (tmpdate.getDate() !== date.getDate()) ||
-          (tmpdate.getMonth() !== date.getMonth())) {
+        (tmpdate.getDate() !== date.getDate()) ||
+        (tmpdate.getMonth() !== date.getMonth())) {
         return true;
       }
     }

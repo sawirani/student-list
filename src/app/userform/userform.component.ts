@@ -1,13 +1,13 @@
-import { Component, OnInit, Output, EventEmitter } from '@angular/core';
-import { FormBuilder, FormGroup, FormControl } from '@angular/forms';
-import { Validators, ValidationErrors} from '@angular/forms';
+import {Component, OnInit, Output, EventEmitter} from '@angular/core';
+import {FormBuilder, FormGroup, FormControl} from '@angular/forms';
+import {Validators, ValidationErrors} from '@angular/forms';
 import {Student} from '../student.model';
 
 
 @Component({
   selector: 'app-userform',
   templateUrl: './userform.component.html',
-  styleUrls: ['../app.component.css', './userform.component.css']
+  styleUrls: ['./userform.component.css']
 })
 export class UserformComponent implements OnInit {
 
@@ -18,23 +18,23 @@ export class UserformComponent implements OnInit {
   constructor(private fb: FormBuilder) {
   }
 
-_nameValidator(control: FormControl): ValidationErrors {
+  _nameValidator(control: FormControl): ValidationErrors {
 
-  const value = control.value;
-  if ((value.firstName !== null && value.lastName !== null)) {
-    if ((value.firstName.toLowerCase() === value.lastName.toLowerCase())) {
-      return { invalidName: 'Имя не должно совпадать с фамилией' };
+    const value = control.value;
+    if ((value.firstName !== null && value.lastName !== null)) {
+      if ((value.firstName.toLowerCase() === value.lastName.toLowerCase())) {
+        return {invalidName: 'Имя не должно совпадать с фамилией'};
+      }
     }
-  }
 
-  if (( value.firstName !== null && value.middleName !== null)) {
-    if ((value.firstName.toLowerCase() === value.middleName.toLowerCase())) {
-      return { invalidName: 'Имя не должно совпадать с отчеством' };
+    if ((value.firstName !== null && value.middleName !== null)) {
+      if ((value.firstName.toLowerCase() === value.middleName.toLowerCase())) {
+        return {invalidName: 'Имя не должно совпадать с отчеством'};
+      }
     }
-  }
 
-  return null;
-}
+    return null;
+  }
 
   _dataValidator(control: FormControl): ValidationErrors {
     const value = control.value;
@@ -44,10 +44,10 @@ _nameValidator(control: FormControl): ValidationErrors {
     now.setFullYear(now.getFullYear() - 10);
 
     if (ndate > now) {
-     return { invalidDate: 'Пользователю должно быть не менее 10 лет' };
+      return {invalidDate: 'Пользователю должно быть не менее 10 лет'};
     }
-     return null;
-   }
+    return null;
+  }
 
   onSubmit() {
     const student: Student = new Student();
@@ -56,7 +56,7 @@ _nameValidator(control: FormControl): ValidationErrors {
     student.fistName = this.studentForm.value.person.firstName;
     student.lastName = this.studentForm.value.person.lastName;
     student.middleName = this.studentForm.value.person.middleName;
-    
+
     this.addstudent.emit(student);
     this.addpopup.emit(true);
   }

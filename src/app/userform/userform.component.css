@@ -1,8 +1,22 @@
-li{
-    list-style-type: none;
-    color: red;
+.submit {
+  display: inline-block;
+  font-family: arial, sans-serif;
+  font-size: 11px;
+  text-decoration: none;
+  user-select: none;
+  line-height: 2em;
+  outline: none;
+  border: 1px solid rgba(33, 43, 52, 1);
+  border-radius: 3px;
+  background: #00000069;
+  color: white
 }
 
-.buttons{
-    margin: 0 10px 0 10px;
+li {
+  list-style-type: none;
+  color: red;
+}
+
+.buttons {
+  margin: 0 10px 0 10px;
 }

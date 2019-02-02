@@ -1,21 +1,3 @@
-.submit{
-    display: inline-block;
-    font-family: arial,sans-serif;
-    font-size: 11px;
-    text-decoration: none;
-    user-select: none;
-    line-height: 2em;
-    outline: none;
-    border: 1px solid rgba(33,43,52,1);
-    border-radius: 3px;
-    background: #00000069;
-    color: white
-  }
-  
-  .search{
-    margin: 0 0 0 10px;
-  }
-
-  .contener{
-    margin: 0
-  }
+.contener {
+  margin: 0
+}
